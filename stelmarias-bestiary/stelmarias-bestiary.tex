@@ -1,0 +1,267 @@
+% Changing book to article will make the footers match on each page,
+% rather than alternate every other.
+%
+% Note that the article class does not have chapters.
+\documentclass[letterpaper,10pt,twoside,twocolumn,openany]{book}
+
+% Use babel or polyglossia to automatically redefine macros for terms
+% Armor Class, Level, etc...
+% Default output is in English; captions are located in lib/dndstring-captions.sty.
+% If no captions exist for a language, English will be used.
+%1. To load a language with babel:
+%	\usepackage[<lang>]{babel}
+%2. To load a language with polyglossia:
+%	\usepackage{polyglossia}
+%	\setdefaultlanguage{<lang>}
+\usepackage[english]{babel}
+%usepackage[italian]{babel}
+% For further options (multilanguage documents, hypenations, language environments...)
+% please refer to babel/polyglossia's documentation.
+
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{listings}
+
+% dnd package options 
+% bg-full   : Default option. Use paper background and fancy footer.
+% bg-print  : Use fancy footer but not background.
+% bg-none   : No paper background and plain footer.
+% justified : Use full justification for text layout instead of ragged right.
+\usepackage[bg-print]{dnd}
+
+\lstset{%
+  basicstyle=\ttfamily,
+  language=[LaTeX]{TeX},
+}
+
+% Start document
+\begin{document}
+
+% Your content goes here
+
+% Comment this out if you're using the article class.
+%\chapter{Chapter 1: The Dark \LaTeX}
+
+\section{Stelmaria's Friends}
+
+What follows are stat blocks for Stelmaria's pacted allies. 
+Each such ally is an independent fey spirit with their own values and objectives.
+So long as Stelmaria adheres to the terms of their pact, the ally will heed Stelmaria's call.
+
+\begin{quotebox}
+	Beware angering your allies! Most consider themselves your equal or even your better. 
+\end{quotebox}
+
+
+%-------------------------------------------------------------------------
+% AVARR
+%-------------------------------------------------------------------------
+
+
+
+\subsection{Avarr}
+
+% You can optionally not include the background by saying
+% begin{monsterboxnobg}
+\begin{monsterbox}{Avarr}
+	\textit{Large fey tiger, lawful neutral}\\
+	\hline%
+	\basics[%
+	armorclass = 13,
+	hitpoints  = \dice{7d12 + 18},
+	speed      = {50 ft, climb 40 ft, swim 30 ft}
+	]
+	\hline%
+	\stats[
+    STR = \stat{20}, % This stat command will autocomplete the modifier for you
+    DEX = \stat{15},
+    CON = \stat{17},
+    WIS = \stat{14},
+    CHA = \stat{9}
+	]
+	\hline%
+	\details[%
+	% If you want to use commas in these sections, enclose the
+	% description in braces.
+	% I'm so sorry.
+	skills = {Perception +5, Stealth +8},
+	senses = {darkvision 60 ft, pp 15},
+	languages = {Giant Tiger, understands Common and Sylvan but cannot speak},
+	challenge = 2
+	]
+	\hline \\[1mm]
+	\begin{monsteraction}[Keen Smell]
+		Avarr has advantage on Wisdom (Perception) checks that rely on smell.
+	\end{monsteraction}
+	
+	\begin{monsteraction}[Pounce]
+		If Avarr moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, 
+		that target must succeed on a DC 15 Strength saving throw or be knocked prone. 
+		If the target is prone, Avarr can make one bite attack against it as a bonus action.	
+	\end{monsteraction}
+
+	\monstersection{Actions}
+	\begin{monsteraction}[Bite]
+		\emph{Melee Weapon Attack}: +8 to hit, reach 5 ft., one target. \emph{Hit}: 12 (2d6 + 5) piercing damage.
+	\end{monsteraction}
+
+	\begin{monsteraction}[Claw]
+		\emph{Melee Weapon Attack}: +8 to hit, reach 5 ft., one target. \emph{Hit}: 10 (1d10 + 5) slashing damage.
+	\end{monsteraction}
+
+	\begin{monsteraction}[Mighty Leap]
+		1/summoning Avarr leaps 150 ft. If Avarr lands adjacent to a creature, he can make a claw attack as a part of this action.
+	\end{monsteraction}
+\end{monsterbox}
+
+\subsubsection{Pact}
+You freed Avarr from Shymstani bondage.
+He came to respect you following your daring rescue of Bellevoja. 
+Avarr has agreed to help you, so long as his homeland (the interior of Kharazan) remains wild and free.
+
+\subsubsection{Personality}
+Avarr is proud, and considers himself the apex of being. 
+He is intrigued by your inversion of roles - he clearly considers you a prey animal.
+
+
+
+%-------------------------------------------------------------------------
+% SNAAK
+%-------------------------------------------------------------------------
+
+
+
+\subsection{Snaak}
+
+% You can optionally not include the background by saying
+% begin{monsterboxnobg}
+\begin{monsterbox}{Snaak}
+	\textit{Large fey saltwater crocodile, true neutral}\\
+	\hline%
+	\basics[%
+	armorclass = 14 (natural armor),
+	hitpoints  = \dice{6d12 + 15},
+	speed      = {25 ft, swim 40 ft}
+	]
+	\hline%
+	\stats[
+    STR = \stat{21}, % This stat command will autocomplete the modifier for you
+    DEX = \stat{9},
+    CON = \stat{17},
+    INT = \stat{7},
+    WIS = \stat{10},
+    CHA = \stat{5}
+	]
+	\hline%
+	\details[%
+	% If you want to use commas in these sections, enclose the
+	% description in braces.
+	% I'm so sorry.
+	skills = {Stealth +9 (when underwater)},
+	senses = {pp 10},
+	languages = {Crocodile, understands Common and Sylvan but cannot speak},
+	challenge = 2
+	]
+	\hline \\[1mm]
+	\begin{monsteraction}[Hold Breath]
+		Snaak can hold its breath for 30 minutes.
+	\end{monsteraction}
+	
+	\begin{monsteraction}[Ambush]
+		Once per turn, Snaak deals an extra 5d6 damage against the target if he is submerged in water and hidden.
+	\end{monsteraction}
+	\monstersection{Actions}
+	\begin{monsteraction}[Multiattack]
+		Snaak makes two attacks: one with its bite and one with its tail.
+	\end{monsteraction}
+	
+	\begin{monsteraction}[Bite]
+		\emph{Melee Weapon Attack}: +8 to hit, reach 5 ft., one target. \emph{Hit}: 16 (2d10 + 5) piercing damage, and the target is Grappled (escape DC 16). Until this grapple ends, the target is Restrained, and the Crocodile can't bite another target.
+	\end{monsteraction}
+
+	\begin{monsteraction}[Tail]
+		\emph{Melee Weapon Attack}: +8 to hit, reach 5 ft., one target not grappled by Snaak. \emph{Hit}: 14 (2d8 + 5) bludgeoning damage. The target must succeed on a DC 16 Strength saving throw or be knocked prone.
+	\end{monsteraction}
+
+	\begin{monsteraction}[Drown]
+		When Avarr is grappling an enemy in water, he can drag them to a watery grave. 
+		The target must succeed a DC 16 Strength save or take 4d10+5 bludgeoning damage. 
+		A target that succeeds the save takes half damage.
+	\end{monsteraction}
+\end{monsterbox}
+
+\subsubsection{Pact}
+Snaak agreed to aid you so long as you assist him in reclaiming his home (presumably a saltwater rivermouth) from the invaders that drove him off.
+
+\subsubsection{Personality}
+Snaak is a creature of simple pleasures.
+Kill and eat. 
+Bask in the sun.
+Repeat.
+
+
+
+%-------------------------------------------------------------------------
+% SNAAK
+%-------------------------------------------------------------------------
+
+
+
+\subsection{ Pleath}
+
+% You can optionally not include the background by saying
+% begin{monsterboxnobg}
+\begin{monsterbox}{ Pleath}
+	\textit{Giant fey longneck, chaotic neutral}\\
+	\hline%
+	\basics[%
+	armorclass = 13 (natural armor),
+	hitpoints  = \dice{8d10 + 24},
+	speed      = {10 ft., swim 40 ft.}
+	]
+	\hline%
+	\stats[
+    STR = \stat{18}, % This stat command will autocomplete the modifier for you
+    DEX = \stat{15},
+    CON = \stat{16},
+    INT = \stat{9},
+    WIS = \stat{12},
+    CHA = \stat{5}
+	]
+	\hline%
+	\details[%
+	% If you want to use commas in these sections, enclose the
+	% description in braces.
+	% I'm so sorry.
+	skills = {Perception + 3, Stealth +5 (when underwater)},
+	senses = {pp 13},
+	languages = {Longneck, understands Common and Sylvan but cannot speak},
+	challenge = 2
+	]
+	\hline \\[1mm]
+	\begin{monsteraction}[Hold Breath]
+		Pleath can hold her breath for 2 hours.
+	\end{monsteraction}
+	
+	\monstersection{Actions}
+	\begin{monsteraction}[Bite]
+		\emph{Melee Weapon Attack}: +7 to hit, reach 10 ft., one target. \emph{Hit}: 14 (3d6 + 4) piercing damage.
+	\end{monsteraction}
+	
+	\begin{monsteraction}[Release the Storm]
+		\emph{Concentration (1 min)}: While submerged in water, Pleath whips up a local storm and gains control over the wind and water in a 60 ft diameter cylinder centered on her. The cylinder counts as difficult terrain, and creatures of Pleath's choice that begin their turn in the cylinder must make a DC 13 strength save or be slid 10 ft and knocked prone.
+	\end{monsteraction}
+
+\end{monsterbox}
+
+\subsubsection{Pact}
+Pleath agreed to aid you in return for your future assistance.
+Pleath asked for your help to ``release the storm'' when the time comes. 
+
+\subsubsection{Personality}
+Pleath is currently serving the singer Lobi Thic, but is apparently not domesticated. 
+She claims that Thic ``harbors the storm'' and will be of use in the future.
+
+
+% End document
+\end{document}
