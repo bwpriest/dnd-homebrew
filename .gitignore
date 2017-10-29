@@ -1,0 +1,9 @@
+# LATEX
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# EMACS
+*~
+*#*
