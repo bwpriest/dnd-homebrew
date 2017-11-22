@@ -1,0 +1,221 @@
+\documentclass[10pt,twoside,twocolumn]{article}
+\usepackage[bg-print]{dnd} % Options: bg-a4, bg-letter, bg-full, bg-print, bg-none.
+\usepackage[ngerman]{babel} % Trennungsregeln und autom. Überschriften in n. dt. RS
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+
+\newlength\Origarrayrulewidth
+\newcommand{\Cline}[1]{%
+  \noalign{\global\setlength\Origarrayrulewidth{\arrayrulewidth}}%
+  \noalign{\global\setlength\arrayrulewidth{2pt}}\cline{#1}%
+  \noalign{\global\setlength\arrayrulewidth{\Origarrayrulewidth}}%
+}
+
+\newcommand\Thickvrule[1]{%
+  \multicolumn{1}{!{\vrule width 2pt}c!{\vrule width 2pt}}{#1}%
+}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+% Start document
+\begin{document}
+\fontfamily{ppl}\selectfont % Set text font
+
+% Your content goes here
+
+%\section{Main Section}
+%\lipsum[1] % filler text
+%
+%\subsection{Fun with boxes}
+%\subsubsection{Even more fun!}
+%
+%\begin{commentbox}{Neat Green Box!}
+%	\lipsum[1]
+%\end{commentbox}
+%
+%\begin{quotebox}
+%	As you approach this template you get a sense that the blood and tears of many generations went into its making. A warm feeling welcomes you as you type your first words.
+%\end{quotebox}
+%
+%\newpage % Acts as columbreak because of twocolumn option; for pagebreak use \clearpage
+%
+%% For more columns, you can say \begin{dndtable}[your options here}.
+%% For instance, if you wanted three columns, you could say
+%% \begin{dndtable}{XXX}. The usual host of tabular parameters are
+%% aailable as well.
+%\header{Nice table}
+%\begin{dndtable}
+%   	\textbf{Table head}  & \textbf{Table head} \\
+%   	Some value  & Some value \\
+%   	Some value  & Some value \\
+%   	Some value  & Some value
+%\end{dndtable}
+%
+%\begin{paperbox}{Do the Players need direction?}
+%	\lipsum[1]
+%\end{paperbox}
+%
+%% You can optionally not include the background by saying
+%% begin{monsterboxnobg}
+%\begin{monsterbox}{Monster Foo}
+%	\textit{Small metasyntactic variable (goblinoid), neutral evil}\\
+%	\hline
+%	\basics[%
+%	armorclass = 12,
+%	hitpoints  = 16 (3d8 + 3),
+%	speed      = 50 ft
+%	]
+%	\hline
+%	\stats[
+%    STR = \stat{12}, % This stat command will autocomplete the modifier for you
+%    DEX = \stat{7}
+%	]
+%	\hline
+%	\details[%
+%	% If you want to use commas in these sections, enclose the
+%	% description in braces.
+%	% I'm so sorry.
+%	languages = {Common Lisp, Erlang},
+%	]
+%	\hline \\[1mm]
+%	\begin{monsteraction}[Monster-super-powers]
+%		This Monster has some serious superpowers!
+%	\end{monsteraction}
+%	\monstersection{Actions}
+%	\begin{monsteraction}[Generate text]
+%		This one can generate tremendous amounts of text! Though only when it wants to.
+%	\end{monsteraction}
+%
+%	\begin{monsteraction}[More actions]
+%    See, here he goes again! Yet more text.
+%	\end{monsteraction}
+%\end{monsterbox}
+
+\section{Wands \& Feelings}
+
+    \begin{charactersheet}{My name is... \underline{\hspace{4cm}}}
+    	You are a new student at a wizarding school of great renown.
+%	Some outstanding students excel in  athleticism and grit, others knowledge and intellect, and others still passion and eloquence. 
+%	Many are a mixture. 
+%	You may distribute a total of three points between {\bf body}, {\bf mind}, and {\bf heart}
+
+	\charactersection{Moves}
+		When attempting to cast a spell, perform a feat of athleticism, or influence someone, the gm may call for a roll.
+		This is called a 'move.'
+		You will roll 2d6 and add your {\bf body}, {\bf mind}, or {\bf heart} modifier, depending on what you are trying to do.
+		The GM may apply additional modifiers.
+		The result of the roll tells us what happens.
+		
+		\begin{itemize}
+			\item {\bf On a 10+}: Your move succeeds. You narrate the effects of your move and the GM fills in the blanks.
+			\item {\bf On a 7-9}: Your move succeeds, but the GM will provide you with a disadvantage or ugly choice as a consequence.
+			\item {\bf On a 6-}: Your move fails. The GM narrates the consequences.
+		\end{itemize}
+
+%        \charactercombatstats[armorclass={12},
+%                             initiative={+1},
+%                             speed={25},
+%                             maxhitpoints=19,
+%                             hitpoints=16,
+%                             hitdice={2d8}
+%                             ]
+
+
+	\charactersection{Spellcasting}
+		When you use a spellcasting move, you describe the spell you are attempting to perform. 
+		You may use a spell that exists in the lore, or you may describe a new spell.
+		You decide whether to cast your spell for {\bf precision} or {\bf power}.
+		You and the GM decide what these adjectives mean in context.
+		\begin{itemize}
+			\item {\bf Precision}: Your magic is elegant and accurate.
+			\item {\bf Power}: You magic is forceful and imprecise.
+		\end{itemize}
+	
+	\charactersection{Attributes}
+		You have 3 points to distribute amongst your {\bf Body}, {\bf Mind}, and {\bf Heart} scores.
+
+            \begin{tabular}{c | C{3cm} | L{5cm}}
+            \Cline{2-2}
+            {\large \bf Body} & \Thickvrule{ \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,} & 	Your physical fitness. 
+            													Moves that call for {\bf body} 
+    													rolls include feats of strength, 
+    													skillful broom flying, and dodging danger.\\
+    	\Cline{2-2}
+            {\large \bf Mind} & \Thickvrule{ \,\,\,\,\,\,\,\,\,\,\,\,} & 	Your intellect. Moves that call 
+            													for {\bf mind} rolls include casting for 
+    													{\bf precision} and recalling magical lore\\
+    	\Cline{2-2}
+            {\large \bf Heart} & \Thickvrule{ \,\,\,\,\,\,\,\,\,\,\,\,} & 	Your passion and charisma. 
+            													Moves that call for {\bf heart} 
+    													rolls include casting for {\bf power} 
+    													and persuading others.\\
+    	\Cline{1-3}
+            {\large \bf Health} & \Thickvrule{\,\,\,\,\,\,\,\,\,\,\,\,} & 	Your sturdiness. Set max equal to 3+{\bf Body}. 
+            										If your health is reduced to zero, you fall
+											unconscious.\\
+    	\Cline{2-2}
+            \end{tabular}
+
+%        \stats[STR=\stat{10}, 
+%               DEX=\stat{12}, 
+%               CON=\stat{10}, 
+%               INT=\stat{14}, 
+%               WIS=\stat{13}, 
+%               CHA=\stat{16}
+%               ]
+
+%        \hline
+
+        \charactersection{Wand}
+            Every wizard must have a wand.
+            Your choice of wand gives you an advantage that you can invoke once per session.
+            \begin{itemize}
+                \item[o] {\bf Dragon Heartstring}: You automatically roll 10 on a spellcasting roll at the cost of 1 health.
+                \item[o] {\bf Phoenix Feather}: You cast a spell for {\bf precision} \emph{and} {\bf power}. Use either {\bf Mind} or {\bf Heart}.
+                \item[o] {\bf Unicorn Hair}: You change a spellcasting roll of 6- into a 7.
+            \end{itemize}
+
+        \charactersection{House}
+		Every wizard must belong to a house.
+		Your choice of house gives you an advantage that you can invoke once per session.
+            \begin{itemize}
+                \item[o] {\bf Griffindor}: When you would take damage, instead take no damage.
+                \item[o] {\bf Hufflepuff}: After an ally makes a move, apply +2 to their roll.
+                \item[o] {\bf Ravenclaw}: You automatically roll a 10 when attempting to recall lore.
+                \item[o] {\bf Slytherin}: You ignore any negative consequences of one of your moves.
+            \end{itemize}
+
+        \charactersection{Favorite Subject}
+		All wizards have different talents.
+		You will be slightly better (+1 to roll) at performing spells or recalling lore related to your favorite subject.
+            \begin{itemize}
+                \item[o] {\bf Charms}: manipulating objects
+                \item[o] {\bf DADA}: offensive/defensive spells
+                \item[o] {\bf Potions}: brewing magical potions. You also start with one of the following potions: \\
+                \begin{tabular}{cccc}
+                    \textbf{Felix Felisis} & \textbf{Polyjuice} & \textbf{Healing} & \textbf{Forgetfulness}\\
+%                    \textbf{Griffindor} & \textbf{Hufflepuff} & \textbf{Ravenclaw} & \textbf{Slytherin}\\
+                \end{tabular}
+                \item[o] {\bf Transfiguration}: changing form of objects
+            \end{itemize}
+
+        \charactersection{Equipment}
+        		What would a wizard be without \emph{stuff}? 
+		You start with the following equipment, as well as one appropriate personal item of your choice.
+
+        \begin{tabular}{l}
+            \textbf{Item} \\
+            Wand \\
+            Set of core textbooks \\
+            Set of student robes \\
+            Quill and parchment set \\
+        \end{tabular}
+
+    \end{charactersheet}
+
+% End document
+\end{document}
