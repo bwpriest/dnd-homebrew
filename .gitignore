@@ -7,3 +7,5 @@
 # EMACS
 *~
 *#*
+
+*.DS_STORE
